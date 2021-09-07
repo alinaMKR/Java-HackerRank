@@ -1,2 +1,2 @@
 # Java-HackerRank
-Some solution for HackerRank java tests
+Solutions for HackerRank java tests
