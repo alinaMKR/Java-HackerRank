@@ -1,0 +1,53 @@
+import java.util.*;
+import java.util.regex.*;
+
+
+// Write your code here. DO NOT use an access modifier in your class declaration.
+
+class Parser{
+    static boolean isBalanced(String str){
+            Stack<Character> stack = new Stack<Character>();
+            for(char chr: str.toCharArray()){
+                switch (chr){
+                    case '(':
+                    case '{':
+                    case '[':
+                        stack.push(chr);
+                        break;
+                case ']':
+                    if(stack.isEmpty() || stack.pop() != '[') 
+                        return false;
+                    break;
+                case ')':
+                    if(stack.isEmpty() || stack.pop() != '(')
+                        return false;
+                    break;
+                case '}':
+                    if(stack.isEmpty() || stack.pop() != '{')
+                        return false;
+                    break;
+                }
+            }
+            return stack.isEmpty();
+            
+        }
+    
+}
+
+class Solution {
+	
+	public static void main(String[] args) {
+		Parser parser = new Parser();
+        
+		Scanner in = new Scanner(System.in);
+
+		while (in.hasNext()) {
+			System.out.println(parser.isBalanced(in.next()));
+		}
+        
+        
+		in.close();
+	}
+    
+        
+}
